@@ -53,8 +53,10 @@ public class BaseClass {
 	
 	@BeforeClass(groups = {"smokeTest", "regressionTest"})
 	public void configBC() throws Throwable {
-		String BROWSER = fLib.getPropertyKeyValue("browser");
-		String URL = fLib.getPropertyKeyValue("url");
+		//String BROWSER = fLib.getPropertyKeyValue("browser");
+		String BROWSER = System.getProperty("browser");
+		String URL = System.getProperty("url");
+		//String URL = fLib.getPropertyKeyValue("url");
 		if(BROWSER.equals("chrome")) {
 			driver = new ChromeDriver();
 		} else if(BROWSER.equals("firefox")) {
